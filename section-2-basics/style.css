@@ -1,0 +1,9 @@
+.heading {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+}
+
+.heading--big {
+  color: antiquewhite;
+  font-size: 25px;
+}
