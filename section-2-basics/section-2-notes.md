@@ -63,4 +63,4 @@ One common mistake that people do is they pass the handler like this: `headingEl
 `. This is wrong because we are calling clickHandler() right at the point of adding the Eventlistener! But that's not what we want; we want the clickHandler() function to be called and execute the actions AFTER the click event takes place, i.e. we click on that element or whatever and only then clickHandler() should be fired. But in this case, even before we click, clickHandler() will get triggered as soon as the event listener is added which is not what we want.
 
 So instead of above, we need to pass the handler function with just the variable name and not the function call:
-`headingEl.addEventListener("click", clickHandler);`. Check out [this detailed explanation](https://chat.openai.com/c/46780e86-be60-4fe0-9a44-16a0d0487f1c) given by CG on this concept.
+`headingEl.addEventListener("click", clickHandler);`. Check out [this detailed explanation](https://chat.openai.com/c/46780e86-be60-4fe0-9a44-16a0d0487f1c) given by CG on this concept. [Shared Link](https://chat.openai.com/share/f8188e96-dff4-493c-984e-b98d5ab77bce)
