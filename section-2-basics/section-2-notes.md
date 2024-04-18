@@ -43,4 +43,24 @@ headingEl.insertAdjacentHTML(
 
 #### Mainpulating the CSS
 
-- 
+- `headingEl.style.fontSize = "60px";` - Not recommended to manipulate the CSS like this as the JS file will get littered with all sorts of CSS values.
+
+- So the actual values of the properties of the CSS selectors should be kept in the CSS files itself as usual. But we can use JS to add/remove the classes. For e.g. `headingEl.classList.add("heading--big");` - This will add the class heading--big to the element. So earlier the h1 element had only the "heading" class but now it will get the heading--big as well. So the CSS where we had already added the properties for heading--big will take effect. Basically this is the recommended way to manipulate the CSS rather than hardcoding property values.
+
+
+#### Events and Event handler functions
+
+- adding event Listener to a DOM object. `headingEl.addEventListener()` -> two args required: which particular event do we want to listen for - e.g. click event, moust enter/leave event, etc. Second arg is: what we want to do when that event happens. For e.g we want the color to be changed once we click. Here, we would usually pass a function which will do that action rather than defining a bunch of statements and passing them individually.
+
+- For e.g. below would be our clickHandler function that will get passed into Even Listener:
+```
+const clickHandler = () => {
+  headingEl.style.color = "red";
+  console.log("Changed color");
+};
+```
+One common mistake that people do is they pass the handler like this: `headingEl.addEventListener("click", clickHandler());
+`. This is wrong because we are calling clickHandler() right at the point of adding the Eventlistener! But that's not what we want; we want the clickHandler() function to be called and execute the actions AFTER the click event takes place, i.e. we click on that element or whatever and only then clickHandler() should be fired. But in this case, even before we click, clickHandler() will get triggered as soon as the event listener is added which is not what we want.
+
+So instead of above, we need to pass the handler function with just the variable name and not the function call:
+`headingEl.addEventListener("click", clickHandler);`. Check out [this detailed explanation](https://chat.openai.com/c/46780e86-be60-4fe0-9a44-16a0d0487f1c) given by CG on this concept.
